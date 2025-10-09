@@ -8,7 +8,7 @@ use App\Models\Obra;
 use Illuminate\Support\Str; 
 
 
-class ObraSeeder extends Seeder
+class ObraTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

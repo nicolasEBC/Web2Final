@@ -70,22 +70,6 @@
                 <div class="chapter_item">
                     <span class="chapter_number">Capítulo 1</span>
                 </div>
-
-                <div class="chapter_item">
-                    <span class="chapter_number">Capítulo 2</span>
-                </div>
-
-                <div class="chapter_item">
-                    <span class="chapter_number">Capítulo 3</span>
-                </div>
-
-                <div class="chapter_item">
-                    <span class="chapter_number">Capítulo 4</span>
-                </div>
-
-                <div class="chapter_item">
-                    <span class="chapter_number">Capítulo 5</span>
-                </div>
             </div>
         </div>
     </body>

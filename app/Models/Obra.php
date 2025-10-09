@@ -15,7 +15,8 @@ class Obra extends Model
         'slug',
     ];
 
-    // public function capitulos(){
-    //     return $this.hasMany(Capitulo::class)
-    // }
+    public function capitulos(): HasMany
+    {
+        return $this->hasMany(Capitulos::class);
+    }
 }
