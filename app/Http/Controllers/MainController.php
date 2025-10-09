@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Obra;
+use App\Models\Capitulos;
 
 class MainController extends Controller
 {
@@ -42,11 +43,23 @@ class MainController extends Controller
 
     public function obra3()
     {
-        return view('obra3');
+        $obra = Obra::findOrFail(3);
+        $capitulos = $obra->capitulos()->orderBy('numero', 'asc')->get();
+        return view('obra3', compact('obra', 'capitulos'));
     }
 
     public function obra4()
     {
         return view('obra4');
-    }   
+    }
+
+    public function capitulo(string $obraSlug, int $numero)
+{
+    $obra = Obra::where('slug', $obraSlug)->firstOrFail();
+    $capitulo = Capitulos::where('obra_id', $obra->id)
+                         ->where('numero', $numero)
+                         ->firstOrFail();
+    return view('capitulo', compact('obra', 'capitulo'));
+}
+
 }

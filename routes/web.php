@@ -26,6 +26,6 @@ Route::middleware([CheckIsLogged::class])->group(
     Route::GET('/obra3', [MainController::class, 'obra3'])->name('obra3');
     Route::GET('/obra4', [MainController::class, 'obra4'])->name('obra4');
     Route::GET('/search', [MainController::class, 'index'])->name('search');
+    Route::get('/capitulo/{obraSlug}/{numero}', [MainController::class, 'capitulo'])->name('capitulo');
+
 });
-
-

@@ -12,24 +12,25 @@ class CapsTableSeeder extends Seeder
 {
     public function run(): void
     {
-        Capitulos::truncate();
+        Capitulos::query()->delete(); 
 
         $obras = Obra::all();
 
         foreach ($obras as $obra) {
             
             $obraSlug = Str::slug($obra->titulo); 
-
-            for ($i = 1; $i <= 5; $i++) {
+            $numImages = 3; 
+            $imagens = [];
+            
+            for ($j = 1; $j <= $numImages; $j++) {
+                $imagens[] = "assets/images/{$obraSlug}/pg{$j}.jpg";
+            }
+            for ($i = 1; $i <= 1; $i++) {
                 Capitulos::create([
                     'obra_id' => $obra->id,
-                    'nome' => "Capítulo $i: O Início da Jornada",
+                    'nome' => "teste",
                     'numero' => $i,
-                    'imagens' => [
-                        "assets/images/lbpg/lbpg1.jpg",
-                        "assets/images/lbpg/lbpg2.jpg",
-                        "assets/images/lbpg/lbpg3.jpg",
-                    ],
+                    'imagens' => $imagens, 
                 ]);
             }
         }
