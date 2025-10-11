@@ -66,10 +66,13 @@
 
         <div class="chapters_container">
             <div class="chapters_list">
-
-                <div class="chapter_item">
-                    <span class="chapter_number">Capítulo 1</span>
-                </div>
+            @foreach ($capitulos as $capitulo)
+                <a href="{{ route('capitulo', [$obra->slug, $capitulo->numero]) }}" class="chapter_link">
+                    <div class="chapter_item">
+                        <span class="chapter_number">{{ $capitulo->nome }}</span>
+                    </div>
+                </a>
+            @endforeach
             </div>
         </div>
     </body>

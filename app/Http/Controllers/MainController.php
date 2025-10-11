@@ -33,12 +33,16 @@ class MainController extends Controller
 
     public function obra1()
     {
-        return view('obra1');
+        $obra = Obra::findOrFail(1);
+        $capitulos = $obra->capitulos()->orderBy('numero', 'asc')->get();
+        return view('obra1', compact('obra', 'capitulos'));
     }
 
     public function obra2()
     {
-        return view('obra2');
+        $obra = Obra::findOrFail(2);
+        $capitulos = $obra->capitulos()->orderBy('numero', 'asc')->get();
+        return view('obra2', compact('obra', 'capitulos'));
     }
 
     public function obra3()
@@ -50,7 +54,9 @@ class MainController extends Controller
 
     public function obra4()
     {
-        return view('obra4');
+        $obra = Obra::findOrFail(4);
+        $capitulos = $obra->capitulos()->orderBy('numero', 'asc')->get();
+        return view('obra4', compact('obra', 'capitulos'));
     }
 
     public function capitulo(string $obraSlug, int $numero)

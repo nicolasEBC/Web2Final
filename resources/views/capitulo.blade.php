@@ -1,42 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/leitor.css') }}">
-    <title>{{ isset($obra) ? $obra->titulo : 'Obra Não Encontrada' }} - Capítulo {{ isset($capitulo) ? $capitulo->numero : 'N/A' }}</title>
+    <title>{{ isset($obra) ? $obra->titulo : 'Obra Não Encontrada' }} - Capítulo
+        {{ isset($capitulo) ? $capitulo->numero : 'N/A' }}</title>
     <style>
-        /* CSS Básico para o leitor, substitua pelo seu 'leitor.css' */
         body {
-            background-color: #1a202c;
-            color: #ffffff;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        .header-leitor {
-            width: 100%;
-            background-color: #2d3748;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .header-leitor a {
-            color: #f6ad55;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .header-leitor h1 {
-            font-size: 1.25rem;
-            margin: 0;
-            text-align: center;
-            flex-grow: 1;
-        }
+
         .page-image {
             max-width: 100%;
             height: auto;
@@ -44,26 +23,22 @@
             margin: 0 auto 5px auto;
             border-radius: 4px;
         }
-        .leitor-container {
-            width: 90%;
-            max-width: 800px;
-            padding-bottom: 50px;
-        }
     </style>
 </head>
+
 <body>
 
     @if(!isset($obra) || !isset($capitulo))
         <p>Erro: Obra ou capítulo não encontrados.</p>
     @else
         <header class="header-leitor">
-            <a href="{{ route('obra3', $obra->slug) }}">
-                &larr; Voltar para {{ $obra->titulo }}
+            <a href="{{ route('obra' . $obra->id) }}" class="btn btn-primary">
+                Voltar para {{ $obra->titulo }}
             </a>
             <h1>
                 Capítulo {{ $capitulo->numero }}: {{ $capitulo->nome ?? 'Nome não disponível' }}
             </h1>
-            <span></span> <!-- Espaçador para centralizar o título -->
+            <span></span>
         </header>
 
         <main class="leitor-container">
@@ -82,4 +57,5 @@
     @endif
 
 </body>
+
 </html>

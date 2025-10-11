@@ -69,7 +69,7 @@
             @foreach ($capitulos as $capitulo)
                 <a href="{{ route('capitulo', [$obra->slug, $capitulo->numero]) }}" class="chapter_link">
                     <div class="chapter_item">
-                        <span class="chapter_number">Capítulo {{ $capitulo->numero }} - {{ $capitulo->nome }}</span>
+                        <span class="chapter_number">{{ $capitulo->nome }}</span>
                     </div>
                 </a>
             @endforeach
